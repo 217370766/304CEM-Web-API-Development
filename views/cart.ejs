@@ -1,0 +1,72 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+<div class="box-nav d-flex justify-between">
+    <div class="filter">
+        <a href="/shop"><i class="fas fa-angle-double-left"></i> Shop</a>
+    </div>
+ </div><br><br><br>
+ <div class="section-title">
+<% if (cart === null || cart.items.length == 0) {%>
+    <h2>No item in shopping Cart, <a href="/shop">Click here Go to Shop</a></h2>
+<br>
+    Please add product in cart. 
+    <%} else {%>
+        <h2>Your<span> Shopping Cart</span></h2><br>
+    </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col"></th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <%= cart.items.length%> -->
+                <% for(let i = 0; i < cart.items.length; i++){
+                    let eachItem = cart.items[i]; %>
+                    <tr>
+                        <th scope="row">
+                            <%= i+1%>
+                        </th>
+                        <td>
+                        <img src="doughnut.png" alt="" height="50">
+                        </td>
+                        <td>
+                            <%= eachItem.productId.title%>
+                        </td>
+                        <td>
+                            <%= eachItem.productId.price%>
+                        </td>
+                        <td>
+                            <%= eachItem.qty%>
+                        </td>
+                        <td>
+                            <form action="/delete-cart" method="POST">
+                                <input type="hidden" name="prodId" value="<%= eachItem.productId._id%>">
+                                <button type="submit" class="btn btn-outline-warning">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+                        <tr>
+                                
+                            </td>
+                        </tr>
+            </tbody>
+            
+        </table>
+        <button type="submit" class="btn btn-outline-success">Checkout</button>
+    <% } %>
+    
+</div>
+</main>
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

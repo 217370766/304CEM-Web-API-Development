@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Egglectic Café</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Delicious - v4.7.1
+  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+  
+      $( "#form" ).submit(function(event) {
+        event.preventDefault();
+  
+        $.ajax({
+          type: 'POST',
+          url: '/login',
+          data: $('#form').serialize(),
+          dataType: "json",
+          success: function(response){
+            $('#form')[0].reset();
+  
+            document.getElementById("check").innerHTML=response.Success;
+               setTimeout(function(){
+                 document.getElementById("check").innerHTML="";
+               },3000);
+               if (response.Success=="Success!") {
+                 document.getElementById("aa").click();
+               };
+             },
+             error: function() {
+             }
+           })
+      });
+  
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">      
+      <i class="bi bi-phone d-flex align-items-center"><span>+852 2836 1850</span></i>
+      <% if (name.length > 1) {%>
+        <i class="bi bi-emoji-laughing ms-4 d-none d-lg-flex align-items-center" style="text-transform:uppercase"><span>Hi <a href="/profile"><%= name %></a></span></i>
+        <%} else {%>
+          <i class="bi bi-emoji-laughing ms-4 d-none d-lg-flex align-items-center" style="text-transform:uppercase"><span>Hi, Please Login</span></i>
+      
+      <% } %>
+      
+    </div>
+    <div id="google_element" class="pull-right"></div> 
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+        <script>
+        function loadGoogleTranslate () {
+        new google.translate.TranslateElement("google_element");
+        }
+        </script>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <div class="logo me-auto">
+        <h1><a href="/">Egglectic Café</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
+          <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
+          <li><a class="nav-link scrollto" href="#events">Events</a></li>
+          <li><a class="nav-link scrollto" href="#book-a-table">Book Table</a></li>
+          <li><a class="nav-link scrollto" href="#game">Game</a></li>
+          <li><a class="nav-link scrollto" href="#map">Map</a></li>
+          <li><a class="nav-link scrollto" href="#visitors">Visitors</a></li>
+          <li><a class="nav-link scrollto" href="#music">Music</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li> -->
+          
+          <!-- <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/logout">Logout</a></li>
+              <li><a href="/profile">Profile</a></li>
+            </ul>
+          </li> -->
+          
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <li><a class="nav-link scrollto">|</a></li>
+          
+          
+        <!-- </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i> -->
+      <!-- </nav>.navbar -->
+      <% if (name.length > 1) {%>
+        <li><a class="nav-link scrollto" href="/Shop">Shop</a></li>
+        <li><a class="nav-link scrollto" href="/Cart">Cart</a></li>
+        <li><a class="nav-link scrollto" href="/logout">Logout</a></li>
+        <% if (name === 'admin') {%>
+          <li class="dropdown"><a href="#" class="text-danger"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a class="nav-link scrollto text-danger" href="/admin">User Admin</a></li>
+            <li><a class="nav-link scrollto text-danger" href="/pdadmin">Product Admin</a></li>
+          
+              
+            </ul>
+          </li>
+          <!-- <li><a class="nav-link scrollto text-danger" href="/admin">Admin</a></li>
+          <li><a class="nav-link scrollto text-danger" href="/pdadmin">PD Admin</a></li> -->
+          <%} else {%>
+        <% } %>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <a href="/profile" class="book-a-table-btn scrollto">Profile</a>
+        <%} else {%>
+          <li><a class="nav-link scrollto" href="/#Register">Register</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+          <a href="/login" class="book-a-table-btn scrollto">Login</a>
+      <% } %>
+      
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown"><span>Egglectic </span>Café</h2>
+                <p class="animate__animated animate__fadeInUp">He wants to be more than the pain to do something that can do something. To follow them, and to follow them is to seek nothing in order to get some. Others may be blinded by pain and resilience. It was something like pleasure. We accuse the pain of being countered, or soothed. less time and sort of architect</p>
+                <div>
+                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
+                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Thank Him for Pain</h2>
+                <p class="animate__animated animate__fadeInUp">He wants to be more than the pain to do something that can do something. To follow them, and to follow them is to seek nothing in order to get some. Others may be blinded by pain and resilience. It was something like pleasure. We accuse the pain of being countered, or soothed. less time and sort of architect</p>
+                <div>
+                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
+                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Egglectic Café</h2>
+                <p class="animate__animated animate__fadeInUp">He wants to be more than the pain to do something that can do something. To follow them, and to follow them is to seek nothing in order to get some. Others may be blinded by pain and resilience. It was something like pleasure. We accuse the pain of being countered, or soothed. less time and sort of architect</p>
+                <div>
+                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
+                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row">
+
+          <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("assets/img/about.jpg");'>
+            <a href="https://www.youtube.com/watch?v=R8Y7NWC5jgM" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          </div>
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+            <div class="content">
+              <h3>It soothes <strong>builder or manufacturers wants nothing</strong></h3>
+              <p>
+                The pain itself is the love of the pain, the main ecological problems, but I give this kind of time to fall down, so that some great pain and pain. The pain is to blame</p>
+              <p class="fst-italic">
+                The pain itself is love, but I give it to the pain
+                 some great things.
+              </p>
+              <ul>
+                <li><i class="bx bx-check-double"></i> Ullamco laboris required and aliquip ex and comfortable consequat.</li>
+               </ul>
+              <p>
+                No school can work except to achieve the objectives from it. The pain is to blame in the pleasure
+                 he wants to be a clum of pain, but no one can escape from the pain. Excepteur blacks are longing to not see, they are in
+                 The fault of those who forsake their offices soothes the soul, that is toil
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+    <!-- ======= Menu Section ======= -->
+    <section id="menu" class="menu">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Check our tasty <span>Menu</span></h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="menu-flters">
+              <li data-filter="*" class="filter-active">Show All</li>
+              <li data-filter=".filter-starters">Starters</li>
+              <li data-filter=".filter-salads">Salads</li>
+              <li data-filter=".filter-specialty">Specialty</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row menu-container">
+
+          <div class="col-lg-6 menu-item filter-starters">
+            <div class="menu-content">
+              <a href="#">Lobster Bisque</a><span>$5.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-specialty">
+            <div class="menu-content">
+              <a href="#">Bread barrel</a><span>$6.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-starters">
+            <div class="menu-content">
+              <a href="#">Crab Cake</a><span>$7.95</span>
+            </div>
+            <div class="menu-ingredients">
+              A delicate crab cake served on a toasted roll with lettuce and tartar sauce
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-salads">
+            <div class="menu-content">
+              <a href="#">Caesar Selections</a><span>$8.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-specialty">
+            <div class="menu-content">
+              <a href="#">Tuscan Grilled</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Grilled chicken with provolone, artichoke hearts, and roasted red pesto
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-starters">
+            <div class="menu-content">
+              <a href="#">Mozzarella Stick</a><span>$4.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-salads">
+            <div class="menu-content">
+              <a href="#">Greek Salad</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Fresh spinach, crisp romaine, tomatoes, and Greek olives
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-salads">
+            <div class="menu-content">
+              <a href="#">Spinach Salad</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-specialty">
+            <div class="menu-content">
+              <a href="#">Lobster Roll</a><span>$12.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Menu Section -->
+
+    <!-- ======= Specials Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Check our <span>Specials</span></h2>
+          
+        </div>
+        <center>
+          <!-- game
+<div>
+  If Score hight that 50, offer 10% off!!!!!!
+  <style>
+    .game-box {
+        text-align:center;   
+    }
+    .game-info {
+        text-align:center; 
+        font-family:arial;
+        line-height:24px;
+    }
+</style>
+  <div class="game-box"><canvas id="canvas" width="400" height="400"></canvas></div>
+  <div class="game-info">
+      <h2>Snake Game</h2>
+      <p id="game-status"></p>
+      <p id="game-score"></p>
+  </div>
+
+  <script>
+    var canvas, ctx, gameControl, gameActive;
+    // render X times per second
+    var x = 8;
+    
+    const CANVAS_BORDER_COLOUR = 'black';
+    const CANVAS_BACKGROUND_COLOUR = "white";
+    const SNAKE_COLOUR = 'orange';
+    const SNAKE_BORDER_COLOUR = 'darkgreen';
+
+
+    window.onload = function() {
+      canvas = document.getElementById("canvas");
+      ctx = canvas.getContext("2d");
+
+      document.addEventListener("keydown", keyDownEvent);
+
+      gameControl = startGame(x);
+    };
+    
+    /* function to start the game */
+    function startGame(x) {
+        // setting gameActive flag to true
+        gameActive = true;
+        document.getElementById("game-status").innerHTML = "<small>Game Started</small>";
+        document.getElementById("game-score").innerHTML = "";
+        return setInterval(draw, 1000 / x);
+    }
+    
+    function pauseGame() {
+        // setting gameActive flag to false
+        clearInterval(gameControl);
+        gameActive = false;
+        document.getElementById("game-status").innerHTML = "<small>Game Paused</small>";
+    }
+    
+    function endGame(x) {
+        // setting gameActive flag to false
+        clearInterval(gameControl);
+        gameActive = false;
+        document.getElementById("game-status").innerHTML = "<small>Game Over</small>";
+        document.getElementById("game-score").innerHTML = "<h1>Score: " + x + "</h1>";
+    }
+
+    // game world
+    var gridSize = (tileSize = 20); // 20 x 20 = 400
+    var nextX = (nextY = 0);
+
+    // snake
+    var defaultTailSize = 3;
+    var tailSize = defaultTailSize;
+    var snakeTrail = [];
+    var snakeX = (snakeY = 10);
+
+    // apple
+    var appleX = (appleY = 15);
+
+    // draw
+    function draw() {
+      // move snake in next pos
+      snakeX += nextX;
+      snakeY += nextY;
+
+      // snake over game world?
+      if (snakeX < 0) {
+        snakeX = gridSize - 1;
+      }
+      if (snakeX > gridSize - 1) {
+        snakeX = 0;
+      }
+
+      if (snakeY < 0) {
+        snakeY = gridSize - 1;
+      }
+      if (snakeY > gridSize - 1) {
+        snakeY = 0;
+      }
+
+      //snake bite apple?
+      if (snakeX == appleX && snakeY == appleY) {
+        tailSize++;
+
+        appleX = Math.floor(Math.random() * gridSize);
+        appleY = Math.floor(Math.random() * gridSize);
+      }
+
+      //  Select the colour to fill the canvas
+    ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
+    //  Select the colour for the border of the canvas
+    ctx.strokestyle = CANVAS_BORDER_COLOUR;
+
+    // Draw a "filled" rectangle to cover the entire canvas
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Draw a "border" around the entire canvas
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+      // paint snake
+      ctx.fillStyle = SNAKE_COLOUR;
+      ctx.strokestyle = SNAKE_BORDER_COLOUR;
+      for (var i = 0; i < snakeTrail.length; i++) {
+        ctx.fillRect(
+          snakeTrail[i].x * tileSize,
+          snakeTrail[i].y * tileSize,
+          tileSize,
+          tileSize
+        );
+        
+        ctx.strokeRect(snakeTrail[i].x * tileSize , snakeTrail[i].y* tileSize, tileSize, tileSize);
+
+        //snake bites it's tail?
+        if (snakeTrail[i].x == snakeX && snakeTrail[i].y == snakeY) {
+          if(tailSize > 3) {
+              endGame(tailSize);
+          }
+          tailSize = defaultTailSize;  
+        }
+      }
+
+      // paint apple
+      ctx.fillStyle = "orange";
+      ctx.fillRect(appleX * tileSize, appleY * tileSize, tileSize, tileSize);
+
+      //set snake trail
+      snakeTrail.push({ x: snakeX, y: snakeY });
+      while (snakeTrail.length > tailSize) {
+        snakeTrail.shift();
+      }
+    }
+
+    // input
+    function keyDownEvent(e) {
+      switch (e.keyCode) {
+        case 37:
+          nextX = -1;
+          nextY = 0;
+          break;
+        case 38:
+          nextX = 0;
+          nextY = -1;
+          break;
+        case 39:
+          nextX = 1;
+          nextY = 0;
+          break;
+        case 40:
+          nextX = 0;
+          nextY = 1;
+          break;
+        case 32:
+          if(gameActive == true) {
+              pauseGame();
+          }
+          else {
+              gameControl = startGame(x);
+          }
+          break;
+      }
+    }
+  </script>
+</div>  -->
+  <!-- twitter -->
+  <a class="twitter-follow-button"
+    href="https://twitter.com/TwitterDev"
+    data-size="large">
+    Follow @TwitterDev</a>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Prepare leafy greens in advance by tearing the leaves and storing them in the fridge in a covered bowl. The stress of tearing forces the plant to produce more polyphenol antioxidants. <a href="https://twitter.com/hashtag/healthyeating?src=hash&amp;ref_src=twsrc%5Etfw">#healthyeating</a> <a href="https://twitter.com/hashtag/healthyfood?src=hash&amp;ref_src=twsrc%5Etfw">#healthyfood</a> <a href="https://t.co/8KcJQ63bfc">pic.twitter.com/8KcJQ63bfc</a></p>&mdash; Kristie Leong M.D. (@DrKristieLeong) <a href="https://twitter.com/DrKristieLeong/status/1545772291883241473?ref_src=twsrc%5Etfw">July 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</center><br>
+
+        <div class="row">
+          <iframe  height="500" src="https://www.youtube.com/embed/2kCjSq_l-0s?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$( document ).ready(function() {
+$.ajax({
+type: "GET",
+url: "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en", //api for your website
+dataType: "json",
+success: function (result, status, xhr){
+document.getElementById("weather").innerHTML = result.generalSituation;
+},
+})
+});
+</script>
+
+      </div>
+    </section><!-- End Specials Section -->
+
+    <!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Organize Your <span>Events</span> in our Restaurant</h2>
+        </div>
+
+        <div class="events-slider swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="row event-item">
+                <div class="col-lg-6">
+                  <img src="assets/img/event-birthday.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Birthday Parties</h3>
+                  <div class="price">
+                    <p><span>$189</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  </ul>
+                  <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="row event-item">
+                <div class="col-lg-6">
+                  <img src="assets/img/event-private.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Private Parties</h3>
+                  <div class="price">
+                    <p><span>$290</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  </ul>
+                  <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="row event-item">
+                <div class="col-lg-6">
+                  <img src="assets/img/event-custom.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Custom Parties</h3>
+                  <div class="price">
+                    <p><span>$99</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  </ul>
+                  <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Events Section -->
+
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Book a <span>Table</span></h2><br>
+
+          Hong Kong weather: <p id="weather"></p>
+        </div>
+        <script async src="https://cse.google.com/cse.js?cx=037d05d422853f360"></script>
+          <div class="gcse-search"></div>
+
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              <div class="validate"></div>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+
+      </div>
+    </section>
+                <!-- game -->
+                <section id="game" class="specials">
+                  <div class="container">
+            
+                    <div class="section-title">
+                      <h2>Mini Game</span></h2>
+                    If one of the games scores more than 50, offer 10% off!!!!!!</p>
+<div>
+  
+  <!-- <iframe width="100%" height="100%" src="https://www.addictinggames.com/embed/html5-games/22894" scrolling="no"></iframe> -->
+  <iframe width="30%" height=600 src="https://www.addictinggames.com/embed/html5-games/22894" scrolling="no"></iframe>
+  <style>
+    .game-box {
+        text-align:center;   
+    }
+    .game-info {
+        text-align:center; 
+        font-family:arial;
+        line-height:24px;
+    }
+</style>
+  <div class="game-box"><canvas id="canvas" width="400" height="400"></canvas></div>
+  <div class="game-info">
+      
+      <p id="game-status"></p>
+      <p id="game-score"></p>
+  </div>
+
+  <script>
+    var canvas, ctx, gameControl, gameActive;
+    var x = 8;
+    
+    const CANVAS_BORDER_COLOUR = 'black';
+    const CANVAS_BACKGROUND_COLOUR = "white";
+    const SNAKE_COLOUR = 'orange';
+    const SNAKE_BORDER_COLOUR = 'darkgreen';
+
+
+    window.onload = function() {
+      canvas = document.getElementById("canvas");
+      ctx = canvas.getContext("2d");
+
+      document.addEventListener("keydown", keyDownEvent);
+
+      gameControl = startGame(x);
+    };
+    
+    function startGame(x) {
+        gameActive = true;
+        document.getElementById("game-status").innerHTML = "<small>Game Started</small>";
+        document.getElementById("game-score").innerHTML = "";
+        return setInterval(draw, 1000 / x);
+    }
+    
+    function pauseGame() {
+        clearInterval(gameControl);
+        gameActive = false;
+        document.getElementById("game-status").innerHTML = "<small>Game Paused</small>";
+    }
+    
+    function endGame(x) {
+        clearInterval(gameControl);
+        gameActive = false;
+        document.getElementById("game-status").innerHTML = "<small>Game Over</small>";
+        document.getElementById("game-score").innerHTML = "<h1>Score: " + x + "</h1>";
+    }
+
+    var gridSize = (tileSize = 20); 
+    var nextX = (nextY = 0);
+
+    var defaultTailSize = 3;
+    var tailSize = defaultTailSize;
+    var snakeTrail = [];
+    var snakeX = (snakeY = 10);
+
+    var appleX = (appleY = 15);
+
+    function draw() {
+      snakeX += nextX;
+      snakeY += nextY;
+
+      if (snakeX < 0) {
+        snakeX = gridSize - 1;
+      }
+      if (snakeX > gridSize - 1) {
+        snakeX = 0;
+      }
+
+      if (snakeY < 0) {
+        snakeY = gridSize - 1;
+      }
+      if (snakeY > gridSize - 1) {
+        snakeY = 0;
+      }
+
+      //snake bite apple?
+      if (snakeX == appleX && snakeY == appleY) {
+        tailSize++;
+
+        appleX = Math.floor(Math.random() * gridSize);
+        appleY = Math.floor(Math.random() * gridSize);
+      }
+
+    ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
+    ctx.strokestyle = CANVAS_BORDER_COLOUR;
+
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = SNAKE_COLOUR;
+      ctx.strokestyle = SNAKE_BORDER_COLOUR;
+      for (var i = 0; i < snakeTrail.length; i++) {
+        ctx.fillRect(
+          snakeTrail[i].x * tileSize,
+          snakeTrail[i].y * tileSize,
+          tileSize,
+          tileSize
+        );
+        
+        ctx.strokeRect(snakeTrail[i].x * tileSize , snakeTrail[i].y* tileSize, tileSize, tileSize);
+
+        //snake bites it's tail?
+        if (snakeTrail[i].x == snakeX && snakeTrail[i].y == snakeY) {
+          if(tailSize > 3) {
+              endGame(tailSize);
+          }
+          tailSize = defaultTailSize;  
+        }
+      }
+
+      ctx.fillStyle = "orange";
+      ctx.fillRect(appleX * tileSize, appleY * tileSize, tileSize, tileSize);
+
+      //set snake trail
+      snakeTrail.push({ x: snakeX, y: snakeY });
+      while (snakeTrail.length > tailSize) {
+        snakeTrail.shift();
+      }
+    }
+
+    // input
+    function keyDownEvent(e) {
+      switch (e.keyCode) {
+        case 37:
+          nextX = -1;
+          nextY = 0;
+          break;
+        case 38:
+          nextX = 0;
+          nextY = -1;
+          break;
+        case 39:
+          nextX = 1;
+          nextY = 0;
+          break;
+        case 40:
+          nextX = 0;
+          nextY = 1;
+          break;
+        case 32:
+          if(gameActive == true) {
+              pauseGame();
+          }
+          else {
+              gameControl = startGame(x);
+          }
+          break;
+      }
+    }
+  </script>
+</div> 
+</div> 
+</section>
+
+                <!-- map -->
+                <section id="map" class="events">
+                  <div class="container">
+            
+                    <div class="section-title">
+                      <h2>Map</span></h2></p>
+                      <!-- <h3>Our location</h3></p> -->
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14768.15277495361!2d114.17753!3d22.276543!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8fbc82875994d91a!2z6auY5bOw6YCy5L-u5a246Zmi!5e0!3m2!1szh-TW!2shk!4v1658317407267!5m2!1szh-TW!2shk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </p>
+                      <!-- location -->
+  <button class="book-a-table-btn scrollto" id = "find-me">Show my location</button><br/>
+  <p id = "status"></p>
+  <a id = "map-link" target="_blank"></a></p>
+  <script>
+    function geoFindMe() {
+      const status = document.querySelector('#status');
+      const mapLink = document.querySelector('#map-link');
+    
+      mapLink.href = '';
+      mapLink.textContent = '';
+    
+      function success(position) {
+        const latitude  = position.coords.latitude;
+        const longitude = position.coords.longitude;
+    
+        status.textContent = '';
+        mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+        mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+      }
+    
+      function error() {
+        status.textContent = 'Unable to retrieve your location';
+      }
+    
+      if(!navigator.geolocation) {
+        status.textContent = 'Geolocation is not supported by your browser';
+      } else {
+        status.textContent = 'Locating…';
+        navigator.geolocation.getCurrentPosition(success, error);
+      }
+    
+    }
+    
+    document.querySelector('#find-me').addEventListener('click', geoFindMe);
+    </script>
+                  </div> 
+                </section>
+    <!-- End Book A Table Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <!-- <section id="gallery" class="gallery">
+      <div class="container-fluid">
+
+        <div class="section-title">
+          <h2>Some photos from <span>Our Restaurant</span></h2>
+          <p>So that we may be able to achieve the pleasures and pleasures of life.</p>
+        </div>
+
+        <div class="row g-0">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox">
+                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-2.jpg" class="gallery-lightbox">
+                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-3.jpg" class="gallery-lightbox">
+                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox">
+                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-5.jpg" class="gallery-lightbox">
+                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-6.jpg" class="gallery-lightbox">
+                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-7.jpg" class="gallery-lightbox">
+                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-8.jpg" class="gallery-lightbox">
+                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    End Gallery Section -->
+
+    <!-- ======= Chefs Section ======= -->
+    <!-- <section id="chefs" class="chefs">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Our Proffesional <span>Chefs</span></h2>
+          <p>So that we may be able to achieve the pleasures and pleasures of life.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="assets/img/chefs/chefs-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>Master Chef</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="assets/img/chefs/chefs-2.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Patissier</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="assets/img/chefs/chefs-3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>Cook</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Chefs Section -->
+    <section id="visitors" class="specials">
+      <div class="container">
+
+        <div class="section-title">
+          <h2><span>Visitors</span></h2></p>
+          Everyone accessing on this site</p>
+            <!-- visitors -->
+            <script id="_waupph">var _wau = _wau || []; _wau.push(["map", "172lbcd2xh", "pph", "420", "210", "dashmap", "default-orange"]);</script><script async src="//waust.at/m.js"></script>
+            </p><script id="_wauute">var _wau = _wau || []; _wau.push(["small", "36gbwq720c", "ute"]);</script><script async src="//waust.at/s.js"></script></p>
+    </div>
+    </section>
+
+    <section id="music" class="specials">
+      <div class="container">
+
+        <div class="section-title">
+          <h2><span>Music</span></h2></p>
+          Play the Music</p>
+          
+  <!-- Music -->
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+      
+    </section>
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container position-relative">
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <h3>Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <h3>Wilsson</h3>
+                <h4>Designer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <!-- <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          
+          <script async src="https://cse.google.com/cse.js?cx=037d05d422853f360"></script>
+          <div class="gcse-search"></div>
+          <h2><span>Contact</span> Us</h2>
+          <p>Institute of Professional Education and Knowledge, 27 Wood Rd, Wan Chai</p>
+        </div>
+      </div>
+
+      <div class="map">
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14768.15277495361!2d114.17753!3d22.276543!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8fbc82875994d91a!2z6auY5bOw6YCy5L-u5a246Zmi!5e0!3m2!1szh-TW!2shk!4v1652544322975!5m2!1szh-TW!2shk" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="container mt-5">
+
+        <div class="info-wrap">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 info">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>27 Wood Rd, Wan Chai</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="bi bi-clock"></i>
+              <h4>Open Hours:</h4>
+              <p>Monday-Saturday:<br>11:00 AM - 2300 PM</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>info@EgglecticCafe.com<br>contact@EgglecticCafe.com</p>
+            </div>
+
+
+          </div>
+        </div>
+
+        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+
+      </div>
+    </section> -->
+    <!-- End Contact Section -->
+    <% if (name.length > 1) {%>
+
+    
+    <%} else {%>
+      <section id="Register" class="contact">
+        <div class="container">
+      
+          <div class="section-title info-wrap ">
+            <h2><span>Register</span> Now</h2>
+            <p>Register a new account</p>
+      
+            <div>
+              <div>
+              </div>
+              <div class="form-group">
+                <form id="form1" action="/api/users/" method="POST" id="add_user">
+                  <input type="email" name="email" placeholder="E-mail" required="" class="form-control"><br/>
+                  <input type="text" name="name" placeholder="Name" required="" class="form-control"><br/>
+                  <input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
+                  <input type="submit" value="Register" class="btn book-a-table-btn scrollto">
+      
+                </form>
+              </div>
+              <br>
+              <div class="rounded mssg bg-dark text-white">
+                <span id="check"></span>
+              </div>
+            </div>
+            <div class="container">
+              <div>
+                <span>Already Registered! <a href="/login"> Login</a></span>
+              </div>
+              <div id="LangTable"><a href="/login" id="aa"></a>
+              </div>
+            </div>
+          </div>
+  
+      </section>
+  <% } %>
+
+
+
+
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Egglectic Café</h3>
+      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+
+
+      <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://test-localhost-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Egglectic Café</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+<!-- Messenger 洽談附加程式 Code -->
+<div id="fb-root"></div>
+
+<!-- Your 洽談附加程式 code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "113582371350697");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Your SDK code -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v13.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+
+<script id="dsq-count-scr" src="//test-localhost-1.disqus.com/count.js" async></script>
+
+</body>
+
+</html>

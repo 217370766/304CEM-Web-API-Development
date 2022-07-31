@@ -1,0 +1,58 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+
+
+<div class="section-title">
+
+          <h2><span> Online Shop</span></h2><br>
+          Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.
+      </div>
+  <% for(let p of prods) {%>
+    <center>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100"></div>
+            <a href="#"><img class="card-img-top" src="<%= p.imageURL%>" alt=""></a>
+            <img src="doughnut.png" alt="" height="100">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="#">
+                        <%= p.title%><br>
+                        
+                    </a>
+                    
+                </h4>
+                  <small><%= p.description%></small>
+                <h5>$
+                    <%= p.price%>
+                </h5>
+
+
+
+                <!-- <a class="btn btn-outline-dark" href="/admin/edit-product/<%=p._id%>" role="button">Edit</a>
+                <br><br>
+                <form action="/admin/delete-product" method="POST">
+                    <input type="hidden" name="id" value="<%=p._id%>">
+                    <button type="submit" class="btn btn-outline-dark">Delete</button>
+                </form><br> -->
+                <form action="/shop/add-to-cart" method="POST">
+                  <input type="hidden" name="id" value="<%=p.id%>">
+                  <button type="submit" class="btn btn-outline-warning">Add to Cart</button>
+                </form>
+              </div>
+
+            
+        </div>
+
+      </center>
+    <% } %>
+       
+    </div>
+</main>
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
