@@ -27,7 +27,7 @@ exports.create = (req,res)=>{
         
         .catch(err =>{
             res.status(500).send({
-                message : err.message || "Some error occurred while creating a create operation"
+                message : err.message || "Error"
             });
         });
 
@@ -45,13 +45,13 @@ exports.find = (req, res)=>{
         Userdb.findById(id)
             .then(data =>{
                 if(!data){
-                    res.status(404).send({ message : "Not found user with id "+ id})
+                    res.status(404).send({ message : "Not found user "})
                 }else{
                     res.send(data)
                 }
             })
             .catch(err =>{
-                res.status(500).send({ message: "Error retrieving user with id " + id})
+                res.status(500).send({ message: "Error retrieving user"})
             })
 
     }else{
@@ -60,7 +60,7 @@ exports.find = (req, res)=>{
                 res.send(user)
             })
             .catch(err => {
-                res.status(500).send({ message : err.message || "Error Occurred while retriving user information" })
+                res.status(500).send({ message : err.message || "Error" })
             })
     }
 
@@ -79,14 +79,14 @@ exports.update = (req, res)=>{
     Userdb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
         .then(data => {
             if(!data){
-                res.status(404).send({ message : `Cannot Update user with ${id}. Maybe user not found!`})
+                res.status(404).send({ message : `Cannot Update`})
             }else{
                 res.send(data)
 
             }
         })
         .catch(err =>{
-            res.status(500).send({ message : "Error Update user information"})
+            res.status(500).send({ message : "Error"})
         })
         
 }
@@ -98,16 +98,16 @@ exports.delete = (req, res)=>{
     Userdb.findByIdAndDelete(id)
         .then(data => {
             if(!data){
-                res.status(404).send({ message : `Cannot Delete with id ${id}. Maybe id is wrong`})
+                res.status(404).send({ message : `Cannot Delete`})
             }else{
                 res.send({
-                    message : "Deleted successfully!"
+                    message : "successfully!"
                 });
             }
         })
         .catch(err =>{
             res.status(500).send({
-                message: "Could not delete User with id=" + id
+                message: "Could not delete"
             });
         });
 }
@@ -119,7 +119,7 @@ exports.delete = (req, res)=>{
 exports.pdcreate = (req,res)=>{
     // validate request
     if(!req.body){
-        res.status(400).send({ message : "Can not be emtpy!"});
+        res.status(400).send({ message : "emtpy!"});
         return;
     }
 
@@ -141,7 +141,7 @@ exports.pdcreate = (req,res)=>{
         
         .catch(err =>{
             res.status(500).send({
-                message : err.message || "Some error occurred while creating a create operation"
+                message : err.message || "error"
             });
         });
 
@@ -160,13 +160,13 @@ exports.pdupdate = (req, res)=>{
     pddb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
         .then(data => {
             if(!data){
-                res.status(404).send({ message : `Cannot Update user with ${id}. Maybe user not found!`})
+                res.status(404).send({ message : `not found!`})
             }else{
                 res.send(data)
             }
         })
         .catch(err =>{
-            res.status(500).send({ message : "Error Update user information"})
+            res.status(500).send({ message : "Error"})
         })
         
 }
@@ -182,13 +182,13 @@ exports.pdfind = (req, res)=>{
         pddb.findById(id)
             .then(data =>{
                 if(!data){
-                    res.status(404).send({ message : "Not found user with id "+ id})
+                    res.status(404).send({ message : "Not found"})
                 }else{
                     res.send(data)
                 }
             })
             .catch(err =>{
-                res.status(500).send({ message: "Error retrieving user with id " + id})
+                res.status(500).send({ message: "Error retrieving"})
             })
 
     }else{
@@ -197,7 +197,7 @@ exports.pdfind = (req, res)=>{
                 res.send(user)
             })
             .catch(err => {
-                res.status(500).send({ message : err.message || "Error Occurred while retriving user information" })
+                res.status(500).send({ message : err.message || "Error" })
             })
     }
 
@@ -210,7 +210,7 @@ exports.pddelete = (req, res)=>{
     pddb.findByIdAndDelete(id)
         .then(data => {
             if(!data){
-                res.status(404).send({ message : `Cannot Delete with id ${id}. Maybe id is wrong`})
+                res.status(404).send({ message : `Cannot Delete`})
             }else{
                 res.send({
                     message : "Successfully!"
@@ -219,7 +219,7 @@ exports.pddelete = (req, res)=>{
         })
         .catch(err =>{
             res.status(500).send({
-                message: "Could not delete User with id=" + id
+                message: "Could not delete"
             });
         });
     }
